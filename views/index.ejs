@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pizzaria Fantástica</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-	<form>
+	<form class="form-search" action="/pizzas/busca" method="GET">
 		<input type="text" name="busca" placeholder="Qual pizza você procura?" autocomplete="off">
 		<button type="submit">Buscar</button>
 	</form>
@@ -20,7 +20,10 @@
 			<article>
 				<img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
 				<a href="/pizza/<%= pizza.id %>"><button class="left">Ver mais</button></a>
-				<button class="right">+ Add</button>
+				<form id="form-busca" action="/pedidos/add" method="POST">
+					<input type="hidden" name="idPizza" value="<%= pizza.id %>">
+					<button class="right" type="submit">+ Add</button>
+				</form>
 				<div> <%= pizza.nome %> </div>
 				<span><%= pizza.preco.toLocaleString('pt-br', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).replace('.', ',') %></span>
 			</article>

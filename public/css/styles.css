@@ -22,7 +22,7 @@ body::before{
 	z-index: -1;
 }
 
-form {
+.form-search {
 	display: flex;
 	width: 100%;
 	position: fixed;
