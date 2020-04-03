@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Pizzaria Fantástica</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="/css/pizza.css">
 </head>
 <body>
 
@@ -15,9 +15,9 @@
 
         <article>
             <img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
-            <div> <%= pizza.ingredientes %> </div>
+            <div class="ingredients"> Ingredientes: <%= pizza.ingredientes %> </div>
             <button>+ Add</button>
-            <div> <%= pizza.nome %> </div>
+            <div class="nomePizza">  <%= pizza.nome %> </div>
             <span><%= pizza.preco.toLocaleString('pt-br', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).replace('.', ',') %></span>
         </article>
 
