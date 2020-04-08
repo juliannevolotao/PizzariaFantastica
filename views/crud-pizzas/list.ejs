@@ -1,5 +1,17 @@
-<%- include('../parts/head',{title:'Pizzaria Fantástica'}); %>
-<link rel="stylesheet" href="/css/list-pizza.css">
+<!-- <%= JSON.stringify(pizzas) %> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizzaria Fantástica</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/list-pizza.css">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
 <div id="list-pizza">
 	<a href="/pizzas/create">Adicionar nova pizza</a>
 	<table>
@@ -12,7 +24,7 @@
 				<td>
 					<%= pizza.preco.toLocaleString('pt-br', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) %>
 				</td>
-				<td><%= pizza.ingredientes.join(", ") %></td>
+				<td><%= pizza.ingredientes %></td>
 				<td>
 					<form method="POST" action="/pizzas/<%= pizza.id %>?_method=DELETE">
 						<button type="submit">Remover</button>
@@ -24,4 +36,6 @@
 		</tbody>
 	</table>
 </div>
-<%- include('../parts/foot'); %>
+
+</body>
+</html>

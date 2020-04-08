@@ -1,6 +1,19 @@
-<%- include('../parts/head',{title:'Pizzaria Fantástica - Editando Pizza'}); %>
-<link rel="stylesheet" href="/css/form-pizza.css">
-<form id="form-pizza" method="POST" action="/pizzas/<%= pizza.id%>/update?_method=PUT">
+<!-- <%= JSON.stringify(pizza) %> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizzaria Fantástica</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/form-pizza.css">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+
+<form id="form-pizza" method="POST" action="/pizzas/<%= pizza.id%>/update?_method=PUT" enctype="multipart/form-data">
 	<label>
 		Nome:
 		<input type="text" name="nome" id="nome" value="<%= pizza.nome %>" placeholder="Digite o nome da pizza">
@@ -8,7 +21,7 @@
 
 	<label>
 		Ingredientes:
-		<input type="text" name="ingredientes" value="<%= pizza.ingredientes.join(', ') %>" id="ingredientes"
+		<input type="text" name="ingredientes" value="<%= pizza.ingredientes %>" id="ingredientes"
 			placeholder="Ingredientes (separados por vírgula)">
 	</label>
 
@@ -27,4 +40,6 @@
 
 	<button type="submit">Salvar</button>
 </form>
-<%- include('../parts/foot'); %>
+
+</body>
+</html>
