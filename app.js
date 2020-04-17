@@ -4,10 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+var session = require('express-session');
 
 
 var pizzasRouter = require('./routes/PizzasRouter');
 var pedidosRouter = require('./routes/PedidosRouter');
+var loginRouter = require('./routes/LoginRouter');
 
 var app = express();
 
@@ -23,7 +25,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
+app.use(session({secret: "CHAVE-DE-CRIPTOGRAFIA"}));
 
+app.use('/', loginRouter);
 app.use('/', pizzasRouter);
 app.use('/', pedidosRouter);
 

@@ -16,7 +16,10 @@
         <article>
             <img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
             <div class="ingredients"> Ingredientes: <%= pizza.ingredientes %> </div>
-            <button>+ Add</button>
+            <form id="form-busca" action="/pedidos/add" method="POST">
+                <input type="hidden" name="idPizza" value="<%= pizza.id %>">
+                <button class="right" type="submit">+ Add</button>
+            </form>
             <div class="nomePizza">  <%= pizza.nome %> </div>
             <span><%= pizza.preco.toLocaleString('pt-br', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).replace('.', ',') %></span>
         </article>

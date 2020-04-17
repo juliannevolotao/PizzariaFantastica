@@ -16,7 +16,6 @@
 	</form>
 	<main>
 		<% for( pizza of pizzas ) { %>
-
 			<article>
 				<img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
 				<a href="/pizza/<%= pizza.id %>"><button class="left">Ver mais</button></a>
@@ -27,7 +26,6 @@
 				<div> <%= pizza.nome %> </div>
 				<span><%= pizza.preco.toLocaleString('pt-br', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }).replace('.', ',') %></span>
 			</article>
-
 		<% } %>
 
 		
